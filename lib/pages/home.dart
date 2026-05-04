@@ -1,0 +1,113 @@
+import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:the_food_runner/components/bottomnav.dart';
+import 'package:the_food_runner/components/loading.dart';
+import 'package:the_food_runner/components/tabitem.dart';
+import 'package:the_food_runner/providers/food.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  late TabController _tabController;
+  final FoodMethods _restaurant = FoodMethods();
+  bool _isLoading = true;
+
+  @override
+  void initState() {
+    Future.delayed(const Duration(milliseconds: 1000), () {
+      setState(() {
+        _isLoading = false;
+      });
+    });
+    super.initState();
+    _tabController = TabController(length: _restaurant.foodCount, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _tabController.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blueAccent,
+        foregroundColor: Colors.white,
+        title: Text(
+          "Home".toUpperCase(),
+          style: TextStyle(
+            fontSize: 24,
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            letterSpacing: 1.5,
+          ),
+        ),
+        centerTitle: true,
+        elevation: 4,
+        shadowColor: Colors.grey,
+      ),
+      body: _isLoading
+          ? const LoadingWidget()
+          : NestedScrollView(
+              headerSliverBuilder: (context, innerBoxIsScrolled) => [
+                SliverAppBar(
+                  title: Padding(
+                    padding: const EdgeInsets.only(top: 10.0),
+                    child: Text(
+                      "Restaurant Menu".toUpperCase(),
+                      style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.black54,
+                        fontWeight: FontWeight.bold,
+                        letterSpacing: 1.5,
+                      ),
+                    ),
+                  ),
+                  centerTitle: true,
+                  pinned: true,
+                  floating: true,
+                  forceElevated: innerBoxIsScrolled,
+                  bottom: TabBar(
+                    padding: EdgeInsets.zero,
+                    controller: _tabController,
+                    labelPadding: const EdgeInsets.symmetric(horizontal: 14),
+                    isScrollable: true,
+                    tabAlignment: TabAlignment.center,
+                    labelColor: Colors.blue[600],
+                    indicatorColor: Colors.blue[600],
+                    tabs: _restaurant.allFoodKey
+                        .map((food) => Tab(child: Text(food.toUpperCase())))
+                        .toList(),
+                  ),
+                ),
+              ],
+              body: Consumer<FoodMethods>(
+                builder: (context, value, child) => TabBarView(
+                  controller: _tabController,
+                  children: [
+                    TabItems(menu: _restaurant.vietMenu),
+                    TabItems(menu: _restaurant.koreanMenu),
+                    TabItems(menu: _restaurant.spanishMenu),
+                    TabItems(menu: _restaurant.italianMenu),
+                    TabItems(menu: _restaurant.americanMenu),
+                    TabItems(menu: _restaurant.japaneseMenu),
+                    TabItems(menu: _restaurant.indianMenu),
+                    TabItems(menu: _restaurant.mexicanMenu),
+                    TabItems(menu: _restaurant.thaiMenu),
+                    TabItems(menu: _restaurant.frenchMenu),
+                  ],
+                ),
+              ),
+            ),
+      bottomNavigationBar: const MyBottomNavBar(currentIndex: 0),
+    );
+  }
+}
