@@ -7,10 +7,10 @@ Welcome to my The Food Runner! The primary goal of this project is to develop a 
 - Sophie Nguyen
 
 ## Project Details
-- [**Proposal**]()
-- [**APK File**]()
-- [**Slides**]()
-- [**Demo**]()
+- [**Proposal**](https://drive.google.com/file/d/1iWEtJtkgwbsDK0VJKJZIqf5a0xxDpsN5/view?usp=sharing)
+- [**APK File**](https://drive.google.com/file/d/1JMlLGfaAMyNYKbanuXMrz7_CWd2QD4d7/view?usp=sharing)
+- [**Slides**](https://docs.google.com/presentation/d/1_4pGp87joStJM6XYBtZYnSp4WxbLooMA/edit?usp=sharing&ouid=115063291951967236235&rtpof=true&sd=true)
+- [**Demo**](https://drive.google.com/file/d/1x0Yd8-ipF0eSkRmWc2CnZ1ApmGJHtcy0/view?usp=sharing)
 - 
 ## Tech Stack
 - **Flutter (Dart-based)**: Cross-platform mobile application development framework.
@@ -24,10 +24,10 @@ Welcome to my The Food Runner! The primary goal of this project is to develop a 
 - **User-Friendly Interface and Navigation**: The application will feature an intuitive and visually appealing user interface, with a focus on easy navigation.
 
 ## Contributing
-We welcome contributions from the community! If you'd like to contribute to the The Food Runner, please follow this [CONTRIBUTING](https://github.com/MobileAppDevelopment-Fall2025/The-Food-Runner/blob/main/CONTRIBUTING.md).
+We welcome contributions from the community! If you'd like to contribute to the The Food Runner, please follow this [CONTRIBUTING](https://github.com/MobileAppDevelopment-Spring2026/Project-2-The-Food-Runner/blob/main/CONTRIBUTING.md).
 
 ## License
-This project is licensed under the [LICENSE](https://github.com/MobileAppDevelopment-Fall2025/The-Food-Runner/blob/main/LICENSE).
+This project is licensed under the [LICENSE](https://github.com/MobileAppDevelopment-Spring2026/Project-2-The-Food-Runner/blob/main/LICENSE).
 
 ## Contact
 For any inquiries or suggestions regarding the The Food Runner, please contact:
